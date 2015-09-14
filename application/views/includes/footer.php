@@ -1,7 +1,3 @@
-    <footer>
-        <p>
-            &copy; Copyright by John Doe
-        </p>
-    </footer>
+</div>
 </body>
 </html>
