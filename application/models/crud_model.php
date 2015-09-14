@@ -9,4 +9,8 @@ class Crud_model extends CI_Model{
             redirect('crud/create');
         endif;
     }
+    
+    public function get_all(){
+        return $this->db->get('curso_ci');
+    }
 }
