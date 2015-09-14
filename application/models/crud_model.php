@@ -10,7 +10,25 @@ class Crud_model extends CI_Model{
         endif;
     }
     
+    public function do_update($dados=NULL,$condicao=NULL){
+        if($dados!=NULL && $condicao!=NULL):
+            $this->db->update('curso_ci', $dados, $condicao);
+            $this->session->set_flashdata('edicaook', 'Cadastro alterado com sucesso');
+            redirect(current_url());
+        endif;
+    }
+    
     public function get_all(){
         return $this->db->get('curso_ci');
+    }
+    
+    public function get_byid($id=NULL){
+        if($id !=NULL):
+            $this->db->where('id', $id);
+            $this->db->limit(1);
+            return $this->db->get('curso_ci');
+        else:
+            return FALSE;
+        endif;
     }
 }
