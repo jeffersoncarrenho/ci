@@ -18,6 +18,15 @@ class Crud_model extends CI_Model{
         endif;
     }
     
+    public function do_delete($condicao=NULL){
+        if($condicao!=NULL):
+            $this->db->delete('curso_ci',$condicao);
+            $this->session->set_flashdata('excluirok', 'Registro deletado com sucesso');
+            redirect('crud/retrieve');
+        endif;
+    }
+    
+    
     public function get_all(){
         return $this->db->get('curso_ci');
     }

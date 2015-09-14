@@ -70,6 +70,9 @@ class Crud extends CI_Controller{
         $this->load->view('crud', $dados);
     }
     public function delete(){
+        if($this->input->post('idusuario')>0):
+            $this->crud->do_delete(array('id'=>$this->input->post('idusuario')));
+        endif;
         $dados = array(
             'titulo' => 'Crud &raquo; Delete',
             'tela' => 'delete',
